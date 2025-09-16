@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clara AI - AI-Powered Pharmaceutical Engagement Platform | 10x Cost Savings</title>
+    <meta name="description" content="Transform pharmaceutical engagement with Clara AI. Instant drug information, prior authorization, and patient assistance. 10x cheaper than Veeva CRM with instant deployment.">
+    <meta name="keywords" content="pharmaceutical AI, Clara AI, drug information, prior authorization, patient assistance, Veeva CRM alternative, medical AI assistant">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://advocaremed.com/">
+    <meta property="og:title" content="Clara AI - Revolutionary Pharmaceutical Engagement Platform">
+    <meta property="og:description" content="AI-powered virtual medical representative. 10x cost savings, instant deployment, built for healthcare professionals.">
+    <meta property="og:image" content="https://advocaremed.com/assets/clara-ai-social.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.0/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        function trackEvent(action, category, label) {
+            gtag('event', action, { 'event_category': category, 'event_label': label });
+        }
+    </script>
+
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .feature-gradient { background: linear-gradient(145deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+        .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        .slide-in-up { animation: slideInUp 0.8s ease-out; }
+        .slide-in-right { animation: slideInRight 0.8s ease-out; }
+        .pulse-slow { animation: pulse 3s infinite; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+        
+        .stats-counter {
+            font-feature-settings: 'tnum';
+        }
+        
+        .section-appear {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .section-appear.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans overflow-x-hidden" x-data="landingPage()">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-lg fixed w-full z-50 transition-all duration-300" 
+         :class="{ 'bg-white/95 shadow-xl': scrolled }" 
+         x-data="{ scrolled: false }" 
+         @scroll.window="scrolled = window.pageYOffset > 10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold gradient-text">Clara AI</h1>
+                        <p class="text-xs text-gray-600">Pharmaceutical Engagement Platform</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Features</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Pricing</a>
+                    <a href="#demo" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Demo</a>
+                    <a href="mailto:support@advocaremed.com" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="app.html" class="hidden md:block text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                        Sign In
+                    </a>
+                    <button @click="openWaitlistModal()" onclick="trackEvent('cta_click', 'navigation', 'get_started')" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all pulse-slow font-semibold">
+                        Get Started Free
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl float-animation"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl float-animation" style="animation-delay: -3s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 py-20 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-white slide-in-up">
+                    <div class="inline-flex items-center bg-white/20 rounded-full px-4 py-2 mb-6 glass-effect">
+                        <span class="text-sm font-medium">🚀 Now Live: AI-Powered Pharmaceutical Engagement</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Transform Pharma Engagement with 
+                        <span class="relative">
+                            <span class="relative z-10">Clara AI</span>
+                            <span class="absolute bottom-2 left-0 w-full h-4 bg-yellow-400/30 -skew-y-1"></span>
+                        </span>
+                    </h1>
+                    
+                    <p class="text-xl lg:text-2xl mb-8 text-blue-100 leading-relaxed">
+                        The first AI-native pharmaceutical engagement platform. <strong>10x cheaper</strong> than Veeva CRM. 
+                        <strong>Instant deployment</strong>. Built for healthcare professionals who need answers now.
+                    </p>
+                    
+                    <!-- Value Props -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-green-500 p-2 rounded-full">
+                                <i class="fas fa-dollar-sign text-white text-sm"></i>
+                            </div>
+                            <span class="font-semibold">10x Cost Savings</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-blue-500 p-2 rounded-full">
+                                <i class="fas fa-bolt text-white text-sm"></i>
+                            </div>
+                            <span class="font-semibold">Instant Deployment</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-purple-500 p-2 rounded-full">
+                                <i class="fas fa-brain text-white text-sm"></i>
+                            </div>
+                            <span class="font-semibold">AI-Native Design</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-orange-500 p-2 rounded-full">
+                                <i class="fas fa-shield-alt text-white text-sm"></i>
+                            </div>
+                            <span class="font-semibold">HIPAA Compliant</span>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button @click="openWaitlistModal()" onclick="trackEvent('cta_click', 'hero', 'start_free_trial')" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <i class="fas fa-rocket mr-2"></i>Start Free Trial
+                        </button>
+                        <a href="app.html" onclick="trackEvent('cta_click', 'hero', 'try_demo')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-all text-center">
+                            <i class="fas fa-play mr-2"></i>Try Live Demo
+                        </a>
+                    </div>
+                    
+                    <!-- Social Proof -->
+                    <div class="mt-8 flex items-center space-x-6 text-blue-100">
+                        <div class="flex items-center space-x-2">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-green-500 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
+                            </div>
+                            <span class="text-sm">1,000+ HCPs already using Clara</span>
+                        </div>
+                        <div class="flex items-center space-x-1 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-blue-100 ml-2">4.9/5 rating</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="relative slide-in-right">
+                    <div class="relative">
+                        <!-- Main Product Screenshot/Mockup -->
+                        <div class="bg-white rounded-2xl shadow-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-4 mb-4">
+                                <div class="flex items-center space-x-3 text-white">
+                                    <div class="bg-white/20 p-2 rounded-lg">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold">Clara AI Assistant</h3>
+                                        <p class="text-sm opacity-90">Pharmaceutical Intelligence</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="bg-gray-100 rounded-lg p-3">
+                                    <p class="text-sm text-gray-700">"What's the prior authorization process for Biktarvy?"</p>
+                                </div>
+                                <div class="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-500">
+                                    <p class="text-sm text-gray-800"><strong>Clara AI:</strong> For Biktarvy PA, you'll need current HIV RNA, CD4 count, and previous treatment history. Typical approval: 3-5 days with 89% success rate...</p>
+                                    <div class="mt-2 flex items-center space-x-2 text-xs text-gray-500">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded">95% Confidence</span>
+                                        <span>1.2s response</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 -left-6 bg-green-500 text-white p-3 rounded-full shadow-lg float-animation">
+                            <i class="fas fa-check text-xl"></i>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-blue-500 text-white p-3 rounded-full shadow-lg float-animation" style="animation-delay: -2s;">
+                            <i class="fas fa-bolt text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-white">
+                <div class="text-center slide-in-up" style="animation-delay: 0.2s;">
+                    <div class="text-3xl lg:text-4xl font-bold stats-counter" x-text="animatedStats.users">1,000</div>
+                    <div class="text-blue-200 font-medium">Healthcare Providers</div>
+                </div>
+                <div class="text-center slide-in-up" style="animation-delay: 0.3s;">
+                    <div class="text-3xl lg:text-4xl font-bold stats-counter" x-text="animatedStats.queries">50,000</div>
+                    <div class="text-blue-200 font-medium">AI Queries Processed</div>
+                </div>
+                <div class="text-center slide-in-up" style="animation-delay: 0.4s;">
+                    <div class="text-3xl lg:text-4xl font-bold stats-counter">95%</div>
+                    <div class="text-blue-200 font-medium">Accuracy Rate</div>
+                </div>
+                <div class="text-center slide-in-up" style="animation-delay: 0.5s;">
+                    <div class="text-3xl lg:text-4xl font-bold stats-counter">24/7</div>
+                    <div class="text-blue-200 font-medium">Availability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="py-20 bg-white section-appear" x-intersect="$el.classList.add('visible')">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+                    The <span class="gradient-text">$2B Problem</span> Clara AI Solves
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Pharmaceutical companies waste $800M+ annually on ineffective HCP engagement while healthcare professionals struggle with fragmented, slow information access.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Problem Side -->
+                <div>
+                    <h3 class="text-2xl font-bold text-red-600 mb-6">The Broken Status Quo</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-red-100 p-3 rounded-full flex-shrink-0">
+                                <i class="fas fa-clock text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Slow, Expensive Traditional Solutions</h4>
+                                <p class="text-gray-600">Veeva CRM costs $142+/month per user with 6-12 month implementations. HCPs wait days for rep callbacks.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-red-100 p-3 rounded-full flex-shrink-0">
+                                <i class="fas fa-puzzle-piece text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Fragmented Information Sources</h4>
+                                <p class="text-gray-600">HCPs juggle multiple portals, phone calls, and outdated resources to get drug information and patient support.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-red-100 p-3 rounded-full flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Poor User Experience</h4>
+                                <p class="text-gray-600">87% of HCPs want virtual/hybrid meetings, but 80% report lack of personalized interactions from current tools.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution Side -->
+                <div>
+                    <h3 class="text-2xl font-bold text-green-600 mb-6">The Clara AI Solution</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-100 p-3 rounded-full flex-shrink-0">
+                                <i class="fas fa-bolt text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Instant AI-Powered Responses</h4>
+                                <p class="text-gray-600">Get pharmaceutical intelligence in 1.2 seconds, 24/7. No waiting, no phone tag, no delayed callbacks.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-100 p-3 rounded-full flex-shrink-0">
+                                <i class="fas fa-dollar-sign text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">10x Cost Savings</h4>
+                                <p class="text-gray-600">Starting at $29/month vs $142+/month for Veeva. Instant deployment vs 6-12 month implementations.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-100 p-3 rounded-full flex-shrink-0">
+                                <i class="fas fa-brain text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Unified AI Platform</h4>
+                                <p class="text-gray-600">Single interface for drug information, prior authorization, patient assistance, and clinical guidance across all pharmaceutical portfolios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50 section-appear" x-intersect="$el.classList.add('visible')">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+                    <span class="gradient-text">AI-Native</span> Pharmaceutical Intelligence
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Built from the ground up for pharmaceutical engagement. Every feature designed to save time, reduce costs, and improve patient outcomes.
+                </p>
+            </div>
+            
+            <!-- Main Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded-xl mb-6 inline-block">
+                        <i class="fas fa-pills text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Instant Drug Information</h3>
+                    <p class="text-gray-600 mb-4">Complete prescribing information, dosing guidelines, drug interactions, and monitoring requirements for all pharmaceutical portfolios.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Real-time dosing recommendations</li>
+                        <li>• Comprehensive interaction checking</li>
+                        <li>• Evidence-based clinical pearls</li>
+                        <li>• Formulary coverage data</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="bg-gradient-to-r from-green-500 to-blue-500 p-4 rounded-xl mb-6 inline-block">
+                        <i class="fas fa-file-medical text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Prior Authorization Automation</h3>
+                    <p class="text-gray-600 mb-4">Streamlined PA process with AI-generated documentation, payer-specific requirements, and success tracking.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Auto-filled PA forms</li>
+                        <li>• Payer-specific criteria</li>
+                        <li>• 89% approval success rate</li>
+                        <li>• 3-5 day average timeline</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-xl mb-6 inline-block">
+                        <i class="fas fa-hand-holding-heart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Patient Assistance Programs</h3>
+                    <p class="text-gray-600 mb-4">Instant eligibility checking, digital enrollment, and comprehensive support program access for all patients.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Copay cards and discounts</li>
+                        <li>• Free drug programs</li>
+                        <li>• Foundation grants</li>
+                        <li>• Digital enrollment</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 p-4 rounded-xl mb-6 inline-block">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Real-Time Analytics</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive usage analytics, user engagement metrics, and ROI tracking for pharmaceutical partners.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• HCP engagement tracking</li>
+                        <li>• Query pattern analysis</li>
+                        <li>• Satisfaction monitoring</li>
+                        <li>• Compliance reporting</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="bg-gradient-to-r from-teal-500 to-green-500 p-4 rounded-xl mb-6 inline-block">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Compliance-First Design</h3>
+                    <p class="text-gray-600 mb-4">Built-in PhRMA guidelines, HIPAA compliance, and automated audit trails for all pharmaceutical interactions.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• PhRMA guideline automation</li>
+                        <li>• HIPAA-compliant architecture</li>
+                        <li>• Automated audit trails</li>
+                        <li>• Regulatory reporting</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="bg-gradient-to-r from-indigo-500 to-purple-500 p-4 rounded-xl mb-6 inline-block">
+                        <i class="fas fa-link text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">EHR/CRM Integration</h3>
+                    <p class="text-gray-600 mb-4">Seamless integration with Epic, Cerner, Veeva CRM, and Salesforce through modern APIs and webhooks.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Epic FHIR R4 integration</li>
+                        <li>• Veeva CRM sync</li>
+                        <li>• Salesforce connectivity</li>
+                        <li>• Custom API access</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Competitive Advantage -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl border-2 border-blue-500">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Why Clara AI Wins</h3>
+                    <p class="text-gray-600">Built for the age of AI and active patients, not legacy pharmaceutical processes</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded-full inline-block mb-4">
+                            <i class="fas fa-bolt text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Speed Advantage</h4>
+                        <p class="text-gray-600 text-sm">Instant deployment vs 6-12 months for legacy systems</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-gradient-to-r from-green-500 to-teal-500 p-4 rounded-full inline-block mb-4">
+                            <i class="fas fa-dollar-sign text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Cost Advantage</h4>
+                        <p class="text-gray-600 text-sm">10x cheaper than Veeva CRM with superior functionality</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full inline-block mb-4">
+                            <i class="fas fa-brain text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">AI Advantage</h4>
+                        <p class="text-gray-600 text-sm">Native AI vs bolt-on features from legacy platforms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white section-appear" x-intersect="$el.classList.add('visible')">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+                    Simple, <span class="gradient-text">Transparent</span> Pricing
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Start free, scale as you grow. No hidden fees, no long-term contracts, no implementation costs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Free Tier -->
+                <div class="pricing-card bg-gray-50 rounded-2xl p-8 shadow-lg card-hover border-2 border-gray-200">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Free</h3>
+                        <div class="text-5xl font-bold text-gray-800 mb-2">$0</div>
+                        <p class="text-gray-600">Perfect for trying Clara AI</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">50 AI queries per month</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Basic drug information</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">General formulary guidance</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Community support</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Mobile access</span>
+                        </li>
+                    </ul>
+                    
+                    <button @click="openWaitlistModal()" onclick="trackEvent('pricing_click', 'conversion', 'free_plan')" class="w-full bg-gray-200 text-gray-800 py-4 rounded-lg font-bold text-lg hover:bg-gray-300 transition-colors">
+                        Get Started Free
+                    </button>
+                </div>
+                
+                <!-- Professional Tier - Most Popular -->
+                <div class="pricing-card bg-white rounded-2xl p-8 shadow-xl card-hover border-2 border-blue-500 relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-bold">Most Popular</span>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional</h3>
+                        <div class="text-5xl font-bold gradient-text mb-2">$29</div>
+                        <p class="text-gray-600">per user/month</p>
+                        <div class="mt-2">
+                            <span class="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full line-through">Was $142/month (Veeva price)</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700"><strong>Unlimited</strong> AI queries</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Advanced clinical reasoning</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Prior authorization assistance</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Patient assistance programs</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">EHR integration</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Priority support</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">Analytics dashboard</span>
+                        </li>
+                    </ul>
+                    
+                    <button @click="openWaitlistModal()" onclick="trackEvent('pricing_click', 'conversion', 'pro_plan')" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                        Start Free Trial
+                    </button>
+                    
+                    <p class="text-center text-sm text-gray-500 mt-4">14-day free trial • Cancel anytime</p>
+                </div>
+                
+                <!-- Enterprise Tier -->
+                <div class="pricing-card bg-gray-900 rounded-2xl p-8 shadow-lg card-hover border-2 border-gray-700 text-white">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                        <div class="text-5xl font-bold mb-2">Custom</div>
+                        <p class="text-gray-300">For healthcare systems</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8 text-gray-300">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Custom integrations</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Advanced analytics & BI</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Dedicated support team</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Custom AI training</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>SSO integration</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>White-label options</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>SLA guarantees</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="mailto:sales@advocaremed.com" onclick="trackEvent('contact_sales', 'conversion', 'enterprise_plan')" class="block w-full bg-white text-gray-900 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors text-center">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+            
+            <!-- ROI Calculator -->
+            <div class="mt-16 bg-blue-50 rounded-2xl p-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Calculate Your Savings</h3>
+                    <p class="text-gray-600">See how much Clara AI saves vs traditional solutions</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Veeva CRM</h4>
+                        <div class="text-3xl font-bold text-red-600 mb-2">$142/month</div>
+                        <p class="text-sm text-gray-600">+ 6-12 month implementation</p>
+                    </div>
+                    
+                    <div>
+                        <div class="text-4xl mb-4">→</div>
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Switch to Clara AI</h4>
+                            <p class="text-sm">Save 80% immediately</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Clara AI</h4>
+                        <div class="text-3xl font-bold text-green-600 mb-2">$29/month</div>
+                        <p class="text-sm text-gray-600">+ instant deployment</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <div class="bg-green-500 text-white p-6 rounded-xl inline-block">
+                        <h4 class="font-bold text-xl mb-2">Annual Savings: $1,356 per user</h4>
+                        <p class="text-green-100">Plus elimination of implementation costs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-gray-900 text-white section-appear" x-intersect="$el.classList.add('visible')">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                    See Clara AI in <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Action</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Experience the future of pharmaceutical engagement. Try our live demo or watch Clara AI solve real-world scenarios.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Demo CTA -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Ready to Transform Your Workflow?</h3>
+                    <p class="text-gray-300 mb-8 text-lg">
+                        Join 1,000+ healthcare professionals already using Clara AI to save time, reduce costs, and improve patient outcomes.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <a href="app.html" onclick="trackEvent('cta_click', 'demo', 'try_live_demo')" class="block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition-all text-center">
+                            <i class="fas fa-play mr-2"></i>Try Live Demo Now
+                        </a>
+                        
+                        <button @click="openWaitlistModal()" onclick="trackEvent('cta_click', 'demo', 'schedule_demo')" class="block w-full border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-gray-900 transition-all text-center">
+                            <i class="fas fa-calendar mr-2"></i>Schedule Personal Demo
+                        </button>
+                    </div>
+                    
+                    <!-- Social Proof -->
+                    <div class="mt-8 pt-8 border-t border-gray-700">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="flex items-center space-x-1 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-300">4.9/5 average rating</span>
+                        </div>
+                        <blockquote class="text-gray-300 italic">
+                            "Clara AI has transformed how I access drug information. Instead of searching through multiple resources, I get instant, accurate answers."
+                        </blockquote>
+                        <cite class="text-gray-400 text-sm mt-2 block">
+                            — Dr. Sarah Chen, Infectious Disease Specialist
+                        </cite>
+                    </div>
+                </div>
+                
+                <!-- Demo Preview -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                        <!-- Mock Browser -->
+                        <div class="bg-gray-200 px-4 py-3 flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <div class="flex-1 bg-white rounded px-3 py-1 text-sm text-gray-600">
+                                clara-ai.com/app
+                            </div>
+                        </div>
+                        
+                        <!-- Mock Interface -->
+                        <div class="p-6">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
+                                    <i class="fas fa-robot text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Clara AI Assistant</h4>
+                                    <p class="text-sm text-gray-600">Pharmaceutical Intelligence</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <p class="text-sm text-gray-700">"What's the prior authorization process for Biktarvy?"</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <i class="fas fa-robot text-blue-600"></i>
+                                        <span class="font-medium text-blue-600">Clara AI</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">95% Confidence</span>
+                                    </div>
+                                    <p class="text-sm text-gray-800 mb-3">
+                                        <strong>Biktarvy Prior Authorization Requirements:</strong><br>
+                                        📋 Documentation needed: HIV RNA, CD4 count, previous treatments<br>
+                                        ⏱️ Timeline: 3-5 business days<br>
+                                        ✅ Success rate: 89% with proper documentation
+                                    </p>
+                                    <div class="flex space-x-2">
+                                        <button class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Generate PA Letter</button>
+                                        <button class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Check Coverage</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-4 -left-4 bg-green-500 text-white p-3 rounded-full shadow-lg float-animation">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg float-animation" style="animation-delay: -2s;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6">Ready to Join the Revolution?</h2>
+            <p class="text-xl lg:text-2xl mb-8 text-blue-100">
+                Transform your pharmaceutical engagement today. Start free, scale as you grow.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+                <button @click="openWaitlistModal()" onclick="trackEvent('cta_click', 'final', 'start_free_trial')" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-xl hover:bg-gray-100 transition-all">
+                    <i class="fas fa-rocket mr-2"></i>Start Free Trial
+                </button>
+                <a href="app.html" onclick="trackEvent('cta_click', 'final', 'try_demo')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-white hover:text-blue-600 transition-all text-center">
+                    <i class="fas fa-play mr-2"></i>Try Demo
+                </a>
+                <a href="mailto:sales@advocaremed.com" onclick="trackEvent('cta_click', 'final', 'contact_sales')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-xl hover:bg-white hover:text-blue-600 transition-all text-center">
+                    <i class="fas fa-envelope mr-2"></i>Contact Sales
+                </a>
+            </div>
+            
+            <div class="text-blue-100">
+                <p class="mb-2">✅ No credit card required • ✅ 14-day free trial • ✅ Cancel anytime</p>
+                <p class="text-sm">Join 1,000+ healthcare professionals already using Clara AI</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
+                            <i class="fas fa-brain text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl">Clara AI</h3>
+                            <p class="text-gray-400 text-sm">Pharmaceutical Engagement Platform</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Transforming pharmaceutical engagement with AI intelligence. 10x cost savings, instant deployment, built for healthcare professionals.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Platform Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Platform</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="app.html" class="hover:text-white transition-colors">Clara AI Assistant</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Drug Information</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Prior Authorization</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Patient Programs</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">EHR Integration</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="mailto:support@advocaremed.com" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2024 AdvocareMed. All rights reserved. HIPAA compliant platform.</p>
+                <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                    <span class="text-gray-400 text-sm">Powered by Clara AI</span>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span class="text-gray-400 text-sm">All systems operational</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Waitlist Modal -->
+    <div x-show="showWaitlistModal" x-transition class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full">
+            <div class="text-center mb-6">
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-full inline-block mb-4">
+                    <i class="fas fa-rocket text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Start Your Free Trial</h3>
+                <p class="text-gray-600">Join 1,000+ healthcare professionals using Clara AI</p>
+            </div>
+            
+            <form @submit.prevent="submitWaitlist()">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Work Email</label>
+                        <input x-model="waitlistForm.email" type="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Your Role</label>
+                        <select x-model="waitlistForm.role" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select your role</option>
+                            <option value="physician">Physician</option>
+                            <option value="pharmacist">Pharmacist</option>
+                            <option value="nurse">Nurse/NP/PA</option>
+                            <option value="pharma_rep">Pharma Representative</option>
+                            <option value="msl">Medical Science Liaison</option>
+                            <option value="other">Other Healthcare Professional</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Organization</label>
+                        <input x-model="waitlistForm.organization" type="text" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" required class="mr-2">
+                            <span class="text-sm text-gray-600">I agree to receive updates about Clara AI</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-4 mt-6">
+                    <button type="button" @click="showWaitlistModal = false" class="flex-1 bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-colors">
+                        Start Free Trial
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function landingPage() {
+            return {
+                showWaitlistModal: false,
+                animatedStats: {
+                    users: 0,
+                    queries: 0
+                },
+                waitlistForm: {
+                    email: '',
+                    role: '',
+                    organization: ''
+                },
+                
+                init() {
+                    this.animateStats();
+                    this.setupIntersectionObserver();
+                },
+                
+                animateStats() {
+                    let userCount = 0;
+                    let queryCount = 0;
+                    const targetUsers = 1000;
+                    const targetQueries = 50000;
+                    
+                    const interval = setInterval(() => {
+                        if (userCount < targetUsers) {
+                            userCount += Math.ceil(targetUsers / 100);
+                            this.animatedStats.users = Math.min(userCount, targetUsers);
+                        }
+                        if (queryCount < targetQueries) {
+                            queryCount += Math.ceil(targetQueries / 100);
+                            this.animatedStats.queries = Math.min(queryCount, targetQueries);
+                        }
+                        if (userCount >= targetUsers && queryCount >= targetQueries) {
+                            clearInterval(interval);
+                        }
+                    }, 50);
+                },
+                
+                setupIntersectionObserver() {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                            }
+                        });
+                    }, { threshold: 0.1 });
+                    
+                    document.querySelectorAll('.section-appear').forEach(section => {
+                        observer.observe(section);
+                    });
+                },
+                
+                openWaitlistModal() {
+                    this.showWaitlistModal = true;
+                    trackEvent('waitlist_modal_open', 'conversion', 'modal');
+                },
+                
+                async submitWaitlist() {
+                    try {
+                        // Track form submission
+                        trackEvent('waitlist_submit', 'conversion', this.waitlistForm.role);
+                        
+                        // In production, submit to your backend
+                        // For now, simulate success
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        
+                        alert('Thank you! We\'ll send you early access within 24 hours.');
+                        this.showWaitlistModal = false;
+                        
+                        // Reset form
+                        this.waitlistForm = { email: '', role: '', organization: '' };
+                        
+                    } catch (error) {
+                        alert('Something went wrong. Please try again or email support@advocaremed.com');
+                    }
+                }
+            }
+        }
+        
+        // Initialize Alpine.js
+        document.addEventListener('alpine:init', () => {
+            console.log('Clara AI Landing Page Loaded');
+        });
+    </script>
+</body>
+</html>
