@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Clara AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .ai-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur fixed w-full z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold">C</span>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Clara AI</span>
+                </a>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+                    <a href="dashboard.html" class="text-indigo-600 font-medium">Dashboard</a>
+                    <a href="security.html" class="text-gray-700 hover:text-indigo-600">Security</a>
+                    <a href="integrations.html" class="text-gray-700 hover:text-indigo-600">Integrations</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-24 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h1 class="text-4xl font-bold gradient-text mb-2">Real-Time Analytics Dashboard</h1>
+                    <p class="text-gray-600">Monitor your pharmaceutical intelligence platform performance</p>
+                </div>
+                <div class="flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
+                    <div class="w-2 h-2 bg-green-500 rounded-full pulse"></div>
+                    <span class="font-medium">Live Data</span>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fas fa-users text-blue-600 text-2xl"></i>
+                        <span class="text-green-500 text-sm font-medium">+12%</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900">2,847</h3>
+                    <p class="text-gray-600 text-sm">Active HCPs</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fas fa-clock text-green-600 text-2xl"></i>
+                        <span class="text-green-500 text-sm font-medium">+28%</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900">312 hrs</h3>
+                    <p class="text-gray-600 text-sm">Time Saved Today</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fas fa-comments text-purple-600 text-2xl"></i>
+                        <span class="text-blue-500 text-sm font-medium">Live</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900">48,392</h3>
+                    <p class="text-gray-600 text-sm">Queries Today</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <i class="fas fa-dollar-sign text-orange-600 text-2xl"></i>
+                        <span class="text-green-500 text-sm font-medium">+45%</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900">$1.2M</h3>
+                    <p class="text-gray-600 text-sm">Monthly Savings</p>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Query Volume Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">Query Volume (7 Days)</h3>
+                    <canvas id="queryVolumeChart" height="150"></canvas>
+                </div>
+
+                <!-- Response Time Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">Response Time Performance</h3>
+                    <canvas id="responseTimeChart" height="150"></canvas>
+                </div>
+            </div>
+
+            <!-- Query Types and Top Drugs -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Query Types -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">Query Types</h3>
+                    <canvas id="queryTypesChart" height="200"></canvas>
+                </div>
+
+                <!-- Top Drugs -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">Top Drug Queries</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700">Biktarvy</span>
+                            <div class="flex items-center gap-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">3,847</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700">Descovy</span>
+                            <div class="flex items-center gap-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">3,201</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700">Truvada</span>
+                            <div class="flex items-center gap-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 52%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">2,563</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-700">Vemlidy</span>
+                            <div class="flex items-center gap-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-orange-600 h-2 rounded-full" style="width: 41%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">2,021</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Metrics -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold mb-4">Success Metrics</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <p class="text-2xl font-bold text-green-600">94.7%</p>
+                            <p class="text-sm text-gray-600">PA Approval Rate</p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <p class="text-2xl font-bold text-blue-600">127ms</p>
+                            <p class="text-sm text-gray-600">Avg Response Time</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <p class="text-2xl font-bold text-purple-600">99.7%</p>
+                            <p class="text-sm text-gray-600">Accuracy Rate</p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <p class="text-2xl font-bold text-orange-600">4.8/5</p>
+                            <p class="text-sm text-gray-600">User Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anomaly Detection Alert -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg mb-8">
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-triangle text-yellow-600 text-xl mr-3"></i>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-yellow-800">Anomaly Detected</h4>
+                        <p class="text-yellow-700 text-sm">Unusual spike in Descovy PA requests from Northeast region. AI predicts 15% increase in processing time.</p>
+                    </div>
+                    <button class="bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-yellow-700">
+                        Investigate
+                    </button>
+                </div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-4">Export & Reports</h3>
+                <div class="flex gap-4">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                        <i class="fas fa-download mr-2"></i>Export CSV
+                    </button>
+                    <button class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700">
+                        <i class="fas fa-file-pdf mr-2"></i>Generate Report
+                    </button>
+                    <button class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">
+                        <i class="fas fa-calendar mr-2"></i>Schedule Reports
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Query Volume Chart
+        const queryVolumeCtx = document.getElementById('queryVolumeChart').getContext('2d');
+        new Chart(queryVolumeCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Queries',
+                    data: [42000, 45000, 43000, 48392, 46000, 35000, 32000],
+                    borderColor: 'rgb(99, 102, 241)',
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return (value / 1000) + 'k';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Response Time Chart
+        const responseTimeCtx = document.getElementById('responseTimeChart').getContext('2d');
+        new Chart(responseTimeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['6am', '9am', '12pm', '3pm', '6pm', '9pm'],
+                datasets: [{
+                    label: 'Response Time (ms)',
+                    data: [125, 132, 127, 145, 138, 121],
+                    backgroundColor: 'rgba(16, 185, 129, 0.8)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + 'ms';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Query Types Chart
+        const queryTypesCtx = document.getElementById('queryTypesChart').getContext('2d');
+        new Chart(queryTypesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Drug Info', 'Prior Auth', 'Patient Assist', 'Interactions', 'Guidelines'],
+                datasets: [{
+                    data: [35, 28, 18, 12, 7],
+                    backgroundColor: [
+                        'rgba(99, 102, 241, 0.8)',
+                        'rgba(147, 51, 234, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(251, 146, 60, 0.8)',
+                        'rgba(236, 72, 153, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 15 }
+                    }
+                }
+            }
+        });
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            // Update live metrics
+            const queries = document.querySelector('h3.text-3xl');
+            const current = parseInt(queries.textContent.replace(',', ''));
+            queries.textContent = (current + Math.floor(Math.random() * 50)).toLocaleString();
+        }, 30000);
+    </script>
+</body>
+</html>

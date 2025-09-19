@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations - Clara AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .integration-card {
+            transition: all 0.3s ease;
+        }
+        .integration-card:hover {
+            transform: translateY(-5px);
+        }
+        @keyframes sync {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .sync-animation {
+            animation: sync 2s linear infinite;
+        }
+        .connection-line {
+            background: linear-gradient(90deg, transparent, #6366f1, transparent);
+            background-size: 200% 100%;
+            animation: flow 2s linear infinite;
+        }
+        @keyframes flow {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-50">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur fixed w-full z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold">C</span>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Clara AI</span>
+                </a>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+                    <a href="dashboard.html" class="text-gray-700 hover:text-indigo-600">Dashboard</a>
+                    <a href="security.html" class="text-gray-700 hover:text-indigo-600">Security</a>
+                    <a href="integrations.html" class="text-indigo-600 font-medium">Integrations</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-24 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Seamless Integrations</h1>
+                <p class="text-xl text-gray-600">Connect Clara AI with your existing healthcare ecosystem</p>
+                
+                <!-- Integration Stats -->
+                <div class="flex flex-wrap justify-center gap-8 mt-8">
+                    <div class="text-center">
+                        <p class="text-3xl font-bold text-blue-600">12</p>
+                        <p class="text-gray-600">Active Integrations</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-bold text-green-600"><100ms</p>
+                        <p class="text-gray-600">Sync Time</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-bold text-purple-600">99.9%</p>
+                        <p class="text-gray-600">Uptime</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-bold text-orange-600">FHIR R4</p>
+                        <p class="text-gray-600">Native Support</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Diagram -->
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">Clara AI Integration Ecosystem</h2>
+                <div class="relative">
+                    <!-- Clara AI Center -->
+                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 w-32 h-32 rounded-full flex items-center justify-center shadow-2xl">
+                            <div class="text-white text-center">
+                                <i class="fas fa-brain text-3xl mb-2"></i>
+                                <p class="font-bold">Clara AI</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Connection Lines -->
+                    <div class="absolute left-1/2 top-1/2 w-96 h-1 connection-line transform -translate-x-1/2 -translate-y-1/2"></div>
+                    <div class="absolute left-1/2 top-1/2 w-1 h-96 connection-line transform -translate-x-1/2 -translate-y-1/2"></div>
+                    
+                    <!-- Integration Points -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-48 pb-8">
+                        <div class="text-center">
+                            <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-hospital text-blue-600 text-2xl"></i>
+                            </div>
+                            <p class="font-semibold">EHR Systems</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-users text-purple-600 text-2xl"></i>
+                            </div>
+                            <p class="font-semibold">CRM Platforms</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-green-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-database text-green-600 text-2xl"></i>
+                            </div>
+                            <p class="font-semibold">Data Sources</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-orange-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-chart-bar text-orange-600 text-2xl"></i>
+                            </div>
+                            <p class="font-semibold">Analytics Tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EHR Integrations -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-6">Electronic Health Records (EHR)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="integration-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%234B5563'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='20' fill='white' font-family='sans-serif'%3EEpic%3C/text%3E%3C/svg%3E" alt="Epic" class="w-16 h-16 rounded">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Connected</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Epic Systems</h3>
+                        <p class="text-gray-600 text-sm mb-4">Full FHIR R4 integration with real-time patient data sync.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">Last Sync: 2 min ago</span>
+                            <i class="fas fa-sync text-green-600 sync-animation"></i>
+                        </div>
+                    </div>
+
+                    <div class="integration-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232563EB'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='16' fill='white' font-family='sans-serif'%3ECerner%3C/text%3E%3C/svg%3E" alt="Cerner" class="w-16 h-16 rounded">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Connected</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Cerner</h3>
+                        <p class="text-gray-600 text-sm mb-4">Bi-directional data flow with automated mapping.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">Last Sync: 5 min ago</span>
+                            <i class="fas fa-sync text-green-600 sync-animation"></i>
+                        </div>
+                    </div>
+
+                    <div class="integration-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2310B981'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='14' fill='white' font-family='sans-serif'%3EAllscripts%3C/text%3E%3C/svg%3E" alt="Allscripts" class="w-16 h-16 rounded">
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Setup Required</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Allscripts</h3>
+                        <p class="text-gray-600 text-sm mb-4">Available for integration. One-click setup process.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 text-sm">
+                            Configure Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRM Integrations -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-6">CRM & Sales Platforms</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="integration-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%237C3AED'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='18' fill='white' font-family='sans-serif'%3EVeeva%3C/text%3E%3C/svg%3E" alt="Veeva" class="w-16 h-16 rounded">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Connected</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Veeva CRM</h3>
+                        <p class="text-gray-600 text-sm mb-4">Complete HCP engagement tracking and analytics.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">12,847 Records Synced</span>
+                            <i class="fas fa-check-circle text-green-600"></i>
+                        </div>
+                    </div>
+
+                    <div class="integration-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2300A1E0'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='12' fill='white' font-family='sans-serif'%3ESalesforce%3C/text%3E%3C/svg%3E" alt="Salesforce" class="w-16 h-16 rounded">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Connected</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Salesforce Health Cloud</h3>
+                        <p class="text-gray-600 text-sm mb-4">Patient 360 view with automated workflows.</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-500">Real-time Sync Active</span>
+                            <i class="fas fa-check-circle text-green-600"></i>
+                        </div>
+                    </div>
+
+                    <div class="integration-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF6900'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='12' fill='white' font-family='sans-serif'%3EHubSpot%3C/text%3E%3C/svg%3E" alt="HubSpot" class="w-16 h-16 rounded">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Beta</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">HubSpot</h3>
+                        <p class="text-gray-600 text-sm mb-4">Marketing automation and lead tracking integration.</p>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 text-sm">
+                            Join Beta
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API & Custom Integrations -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-6">API & Custom Integrations</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold mb-4">RESTful API</h3>
+                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm">
+                            <p class="text-gray-400"># Get drug information</p>
+                            <p>GET /api/v1/drugs/{drug_id}</p>
+                            <p class="mt-2 text-gray-400"># Submit PA request</p>
+                            <p>POST /api/v1/prior-auth</p>
+                            <p class="mt-2 text-gray-400"># Check patient eligibility</p>
+                            <p>GET /api/v1/patient-assistance/eligibility</p>
+                        </div>
+                        <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-book mr-2"></i>View API Docs
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold mb-4">Webhook Events</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-mono text-sm">pa.approved</span>
+                                <span class="text-green-600 text-sm">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-mono text-sm">drug.interaction_detected</span>
+                                <span class="text-green-600 text-sm">Active</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-mono text-sm">patient.assistance_eligible</span>
+                                <span class="text-yellow-600 text-sm">Paused</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <span class="font-mono text-sm">query.completed</span>
+                                <span class="text-green-600 text-sm">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Features -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <i class="fas fa-sync text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-semibold mb-2">Auto-Mapping</h3>
+                    <p class="text-gray-600 text-sm">AI automatically learns and maps your data schema. No manual configuration required.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <i class="fas fa-brain text-purple-600 text-3xl mb-4"></i>
+                    <h3 class="font-semibold mb-2">Predictive Sync</h3>
+                    <p class="text-gray-600 text-sm">AI predicts data needs and pre-fetches information for instant responses.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <i class="fas fa-code text-green-600 text-3xl mb-4"></i>
+                    <h3 class="font-semibold mb-2">FHIR R4 Native</h3>
+                    <p class="text-gray-600 text-sm">Built on FHIR standards for seamless healthcare interoperability.</p>
+                </div>
+            </div>
+
+            <!-- Integration Request -->
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-4">Need a Custom Integration?</h3>
+                <p class="mb-6">Our team can build custom integrations for your specific workflow needs.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                        <i class="fas fa-calendar mr-2"></i>Schedule Consultation
+                    </button>
+                    <button class="bg-white/20 text-white border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30">
+                        <i class="fas fa-code-branch mr-2"></i>Request Integration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simulate real-time sync status updates
+        setInterval(() => {
+            const syncIcons = document.querySelectorAll('.sync-animation');
+            syncIcons.forEach((icon, index) => {
+                setTimeout(() => {
+                    icon.classList.add('text-blue-600');
+                    setTimeout(() => {
+                        icon.classList.remove('text-blue-600');
+                    }, 500);
+                }, index * 200);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>

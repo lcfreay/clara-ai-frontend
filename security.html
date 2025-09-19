@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Compliance - Clara AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .security-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanner {
+            animation: scan 2s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-green-50">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur fixed w-full z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold">C</span>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Clara AI</span>
+                </a>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-indigo-600">Home</a>
+                    <a href="dashboard.html" class="text-gray-700 hover:text-indigo-600">Dashboard</a>
+                    <a href="security.html" class="text-indigo-600 font-medium">Security</a>
+                    <a href="integrations.html" class="text-gray-700 hover:text-indigo-600">Integrations</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-24 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Security & Compliance</h1>
+                <p class="text-xl text-gray-600">Built with security at every layer. Compliant by design.</p>
+                
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap justify-center gap-6 mt-8">
+                    <div class="bg-white rounded-lg px-6 py-3 shadow-md flex items-center gap-3">
+                        <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                        <span class="font-semibold">HIPAA Compliant</span>
+                    </div>
+                    <div class="bg-white rounded-lg px-6 py-3 shadow-md flex items-center gap-3">
+                        <i class="fas fa-certificate text-blue-600 text-xl"></i>
+                        <span class="font-semibold">SOC 2 Type II</span>
+                    </div>
+                    <div class="bg-white rounded-lg px-6 py-3 shadow-md flex items-center gap-3">
+                        <i class="fas fa-gavel text-purple-600 text-xl"></i>
+                        <span class="font-semibold">PhRMA Guidelines</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Status Dashboard -->
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold">Security Status</h2>
+                    <div class="flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="font-medium">All Systems Secure</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto mb-3 relative">
+                            <svg class="transform -rotate-90 w-20 h-20">
+                                <circle cx="40" cy="40" r="36" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                                <circle cx="40" cy="40" r="36" stroke="#10b981" stroke-width="8" fill="none"
+                                        stroke-dasharray="226" stroke-dashoffset="0"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-2xl font-bold text-green-600">100%</span>
+                            </div>
+                        </div>
+                        <p class="font-semibold">Compliance Rate</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto mb-3 relative">
+                            <div class="security-gradient w-full h-full rounded-full flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">247</span>
+                            </div>
+                        </div>
+                        <p class="font-semibold">Audits Passed</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto mb-3 relative">
+                            <div class="bg-purple-600 w-full h-full rounded-full flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">0</span>
+                            </div>
+                        </div>
+                        <p class="font-semibold">Security Incidents</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto mb-3 relative">
+                            <div class="bg-blue-600 w-full h-full rounded-full flex items-center justify-center">
+                                <span class="text-2xl font-bold text-white">99.99%</span>
+                            </div>
+                        </div>
+                        <p class="font-semibold">Uptime</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compliance Framework -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- HIPAA Compliance -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-lock text-green-600 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold">HIPAA Compliance</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-600"></i>
+                                Physical Safeguards
+                            </span>
+                            <span class="text-green-600 font-medium">Compliant</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-600"></i>
+                                Technical Safeguards
+                            </span>
+                            <span class="text-green-600 font-medium">Compliant</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-600"></i>
+                                Administrative Safeguards
+                            </span>
+                            <span class="text-green-600 font-medium">Compliant</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-600"></i>
+                                Business Associate Agreements
+                            </span>
+                            <span class="text-green-600 font-medium">All Signed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PhRMA Guidelines -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-gavel text-purple-600 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold">PhRMA Guidelines</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                Promotional Content Review
+                            </span>
+                            <span class="text-purple-600 font-medium">Automated</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                Fair Balance Requirements
+                            </span>
+                            <span class="text-purple-600 font-medium">Enforced</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                Off-Label Use Prevention
+                            </span>
+                            <span class="text-purple-600 font-medium">AI Monitored</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-check text-purple-600"></i>
+                                Transparency Reporting
+                            </span>
+                            <span class="text-purple-600 font-medium">Automated</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Features -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6">Enterprise Security Features</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-semibold mb-2">Data Encryption</h4>
+                        <p class="text-gray-600 text-sm">AES-256 encryption at rest and in transit. Zero-knowledge architecture ensures your data remains private.</p>
+                    </div>
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h4 class="font-semibold mb-2">Audit Trails</h4>
+                        <p class="text-gray-600 text-sm">Complete audit logging of all system access and modifications. Immutable records for compliance.</p>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="font-semibold mb-2">Access Control</h4>
+                        <p class="text-gray-600 text-sm">Role-based access control with multi-factor authentication. SSO integration available.</p>
+                    </div>
+                    <div class="border-l-4 border-orange-500 pl-4">
+                        <h4 class="font-semibold mb-2">Data Residency</h4>
+                        <p class="text-gray-600 text-sm">Choose where your data is stored. US, EU, and APAC data centers available.</p>
+                    </div>
+                    <div class="border-l-4 border-red-500 pl-4">
+                        <h4 class="font-semibold mb-2">Incident Response</h4>
+                        <p class="text-gray-600 text-sm">24/7 security operations center. Average response time under 15 minutes.</p>
+                    </div>
+                    <div class="border-l-4 border-teal-500 pl-4">
+                        <h4 class="font-semibold mb-2">Vulnerability Management</h4>
+                        <p class="text-gray-600 text-sm">Continuous security scanning and penetration testing. Bug bounty program available.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Audit Results -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6">Recent Audit Results</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-clipboard-check text-green-600 text-xl"></i>
+                            <div>
+                                <p class="font-semibold">SOC 2 Type II Audit</p>
+                                <p class="text-sm text-gray-600">Completed October 2024</p>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Passed</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                            <div>
+                                <p class="font-semibold">HIPAA Security Risk Assessment</p>
+                                <p class="text-sm text-gray-600">Completed September 2024</p>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Passed</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-search text-green-600 text-xl"></i>
+                            <div>
+                                <p class="font-semibold">Penetration Testing</p>
+                                <p class="text-sm text-gray-600">Completed August 2024</p>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">No Critical Issues</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Section -->
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-4">Security Documentation</h3>
+                <p class="mb-6">Download our complete security documentation and compliance certificates.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                        <i class="fas fa-download mr-2"></i>Security Whitepaper
+                    </button>
+                    <button class="bg-white/20 text-white border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30">
+                        <i class="fas fa-certificate mr-2"></i>SOC 2 Report
+                    </button>
+                    <button class="bg-white/20 text-white border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white/30">
+                        <i class="fas fa-file-contract mr-2"></i>HIPAA Compliance
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simulate real-time security monitoring
+        setInterval(() => {
+            const indicators = document.querySelectorAll('.fa-check-circle');
+            indicators.forEach(indicator => {
+                indicator.classList.add('animate-pulse');
+                setTimeout(() => {
+                    indicator.classList.remove('animate-pulse');
+                }, 1000);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
