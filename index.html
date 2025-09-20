@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdvocareMed - AI-Native Pharmaceutical Intelligence Platform</title>
     <meta name="description" content="Clara AI delivers instant pharmaceutical intelligence with 127ms response time, 95% PA success rate, and 10x cost efficiency. Transform HCP engagement with true AI-native technology.">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
@@ -37,48 +37,6 @@
         
         .ai-pulse {
             animation: pulse-glow 2s infinite;
-        }
-        
-        @keyframes data-stream {
-            0% { transform: translateY(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px); opacity: 0; }
-        }
-        
-        .data-stream {
-            animation: data-stream 3s infinite;
-        }
-        
-        .typing-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-        }
-        
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: #6366F1;
-            border-radius: 50%;
-            animation: typing 1.4s infinite;
-        }
-        
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        
-        @keyframes typing {
-            0%, 60%, 100% { opacity: 0.3; }
-            30% { opacity: 1; }
-        }
-        
-        /* Neural network animation for background */
-        .neural-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            pointer-events: none;
         }
         
         .capability-card {
@@ -141,10 +99,10 @@
                         <span class="text-gray-600">Accuracy: <span class="font-medium">99.7%</span></span>
                     </div>
                     
-                    <button onclick="scrollToDemo()" class="text-gray-700 hover:text-blue-600 font-medium transition">
+                    <a href="app.html" class="text-gray-700 hover:text-blue-600 font-medium transition">
                         Try Clara AI
-                    </button>
-                    <button onclick="openInvestorPortal()" class="ai-gradient text-white px-6 py-2 rounded-lg hover:shadow-lg transition font-semibold">
+                    </a>
+                    <button onclick="window.location.href='contact.html'" class="ai-gradient text-white px-6 py-2 rounded-lg hover:shadow-lg transition font-semibold">
                         For Investors
                     </button>
                 </div>
@@ -154,22 +112,6 @@
 
     <!-- Hero Section with Real-Time Data Visualization -->
     <section class="ai-gradient text-white pt-28 pb-20 relative overflow-hidden">
-        <!-- Animated neural network background -->
-        <div class="neural-bg">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="neural-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <circle cx="5" cy="5" r="1" fill="white" opacity="0.3" class="animate-pulse"/>
-                        <line x1="5" y1="5" x2="50" y2="50" stroke="white" opacity="0.1"/>
-                        <circle cx="50" cy="50" r="1.5" fill="white" opacity="0.4" class="animate-pulse" style="animation-delay: 0.5s"/>
-                        <line x1="50" y1="50" x2="95" y2="25" stroke="white" opacity="0.1"/>
-                        <circle cx="95" cy="25" r="1" fill="white" opacity="0.3" class="animate-pulse" style="animation-delay: 1s"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#neural-pattern)"/>
-            </svg>
-        </div>
-
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="text-center">
                 <!-- AI Intelligence Badge -->
@@ -222,11 +164,11 @@
 
                 <!-- Primary CTAs -->
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button onclick="startClaraDemo()" class="group bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition text-lg ai-pulse">
+                    <a href="app.html" class="group bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition text-lg ai-pulse text-center">
                         <i class="fas fa-sparkles mr-2 group-hover:rotate-12 transition-transform"></i>
                         Experience Clara AI Live Demo
-                    </button>
-                    <button onclick="scrollToCapabilities()" class="border-2 border-white/50 backdrop-blur text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition text-lg">
+                    </a>
+                    <button onclick="document.getElementById('capabilities').scrollIntoView({ behavior: 'smooth' })" class="border-2 border-white/50 backdrop-blur text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition text-lg">
                         Explore 6 Core Capabilities
                     </button>
                 </div>
@@ -281,71 +223,6 @@
         </div>
     </section>
 
-    <!-- Enhanced Clara AI Demo Section -->
-    <section id="demo" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <span class="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">
-                    LIVE AI DEMONSTRATION
-                </span>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-6 mb-4">
-                    Clara AI: Multi-Model Intelligence in Action
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Watch Clara synthesize data from 5+ authoritative sources, predict PA success, 
-                    and optimize patient assistance — all in under 200ms
-                </p>
-            </div>
-
-            <!-- Advanced Demo Interface -->
-            <div id="claraDemo" class="max-w-6xl mx-auto">
-                <!-- Demo Start State -->
-                <div id="demoStart" class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl shadow-xl p-12 text-center">
-                    <div class="ai-gradient p-6 rounded-2xl inline-block mb-6 ai-glow">
-                        <i class="fas fa-brain text-white text-5xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">
-                        Ready to Experience True 
-                        <span class="text-transparent bg-clip-text ai-gradient">AI-Native Intelligence?</span>
-                    </h3>
-                    <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                        Clara AI integrates GPT-4, BioBERT, and proprietary models to deliver 
-                        pharmaceutical intelligence that's 10x faster and more accurate than any competitor
-                    </p>
-                    
-                    <!-- Demo Options -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-8">
-                        <button onclick="startDemoScenario('drug-interaction')" class="bg-white rounded-xl p-4 shadow hover:shadow-lg transition group">
-                            <i class="fas fa-pills text-blue-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
-                            <p class="font-semibold">Drug Interactions</p>
-                            <p class="text-xs text-gray-600">Complex multi-drug analysis</p>
-                        </button>
-                        <button onclick="startDemoScenario('pa-automation')" class="bg-white rounded-xl p-4 shadow hover:shadow-lg transition group">
-                            <i class="fas fa-file-medical text-purple-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
-                            <p class="font-semibold">PA Automation</p>
-                            <p class="text-xs text-gray-600">95% success prediction</p>
-                        </button>
-                        <button onclick="startDemoScenario('patient-assist')" class="bg-white rounded-xl p-4 shadow hover:shadow-lg transition group">
-                            <i class="fas fa-hand-holding-heart text-green-600 text-2xl mb-2 group-hover:scale-110 transition-transform"></i>
-                            <p class="font-semibold">Patient Programs</p>
-                            <p class="text-xs text-gray-600">Multi-program optimization</p>
-                        </button>
-                    </div>
-                    
-                    <button onclick="startClaraDemo()" class="ai-gradient text-white px-10 py-4 rounded-xl text-lg font-bold hover:shadow-2xl transition ai-pulse">
-                        <i class="fas fa-play mr-2"></i>
-                        Start Live Clara AI Demo
-                    </button>
-                </div>
-
-                <!-- Active Demo Interface (Hidden Initially) -->
-                <div id="demoActive" class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 ai-glow" style="display: none;">
-                    <!-- Demo interface code continues here - keeping as is -->
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 6 Core AI-Native Capabilities -->
     <section id="capabilities" class="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4">
@@ -375,7 +252,6 @@
                         Complex interaction checking across 50,000+ medications with predictive risk scoring.
                     </p>
                     
-                    <!-- AI Features -->
                     <div class="space-y-2 mb-4">
                         <div class="flex items-center gap-2 text-sm">
                             <i class="fas fa-brain text-purple-500"></i>
@@ -391,7 +267,6 @@
                         </div>
                     </div>
                     
-                    <!-- Live Metrics -->
                     <div class="bg-gray-50 rounded-lg p-3 mb-4">
                         <div class="flex justify-between items-center text-xs">
                             <span class="text-gray-600">Queries Today:</span>
@@ -403,9 +278,9 @@
                         </div>
                     </div>
                     
-                    <button onclick="demoCapability('drug')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center gap-1">
+                    <a href="app.html" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center gap-1">
                         Try Live Demo <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- 2. Prior Authorization Automation -->
@@ -445,9 +320,9 @@
                         </div>
                     </div>
                     
-                    <button onclick="demoCapability('pa')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center gap-1">
+                    <a href="app.html" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center gap-1">
                         Try Live Demo <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- 3. Patient Assistance Programs -->
@@ -487,9 +362,9 @@
                         </div>
                     </div>
                     
-                    <button onclick="demoCapability('assistance')" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center gap-1">
+                    <a href="app.html" class="text-blue-600 font-semibold hover:text-blue-800 transition flex items-center gap-1">
                         Try Live Demo <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </a>
                 </div>
 
                 <!-- 4. Real-Time Analytics -->
@@ -618,48 +493,6 @@
                     </a>
                 </div>
             </div>
-
-            <!-- AI Advantages Summary -->
-            <div class="mt-12 bg-gradient-to-r from-blue-50 via-purple-50 to-green-50 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">The AI-Native Advantage</h3>
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                    <div class="text-center">
-                        <div class="ai-gradient text-white p-3 rounded-xl inline-block mb-2">
-                            <i class="fas fa-tachometer-alt text-2xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-1">Speed</h4>
-                        <p class="text-sm text-gray-600">10x faster than competitors</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="ai-gradient text-white p-3 rounded-xl inline-block mb-2">
-                            <i class="fas fa-dollar-sign text-2xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-1">Cost</h4>
-                        <p class="text-sm text-gray-600">90% reduction vs field reps</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="ai-gradient text-white p-3 rounded-xl inline-block mb-2">
-                            <i class="fas fa-brain text-2xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-1">Intelligence</h4>
-                        <p class="text-sm text-gray-600">Learns from every interaction</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="ai-gradient text-white p-3 rounded-xl inline-block mb-2">
-                            <i class="fas fa-check-circle text-2xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-1">Quality</h4>
-                        <p class="text-sm text-gray-600">99.7% accuracy validated</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="ai-gradient text-white p-3 rounded-xl inline-block mb-2">
-                            <i class="fas fa-shield-alt text-2xl"></i>
-                        </div>
-                        <h4 class="font-semibold mb-1">Compliance</h4>
-                        <p class="text-sm text-gray-600">100% PhRMA adherence</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -723,12 +556,12 @@
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="openContactModal()" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition text-lg">
+                <a href="contact.html" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition text-lg text-center">
                     <i class="fas fa-calendar mr-2"></i>Schedule Demo
-                </button>
-                <button onclick="openInvestorPortal()" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition text-lg">
+                </a>
+                <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition text-lg text-center">
                     <i class="fas fa-chart-line mr-2"></i>Investor Information
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -768,7 +601,7 @@
                         <li><a href="about.html" class="hover:text-white transition">About</a></li>
                         <li><a href="careers.html" class="hover:text-white transition">Careers</a></li>
                         <li><a href="press.html" class="hover:text-white transition">Press</a></li>
-                        <li><a href="clean.html" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -810,52 +643,6 @@
     </footer>
 
     <script>
-        // Demo state management
-        let demoState = {
-            active: false,
-            queryCount: 0,
-            totalResponseTime: 0,
-            sessionStart: null
-        };
-
-        // Start Clara Demo
-        function startClaraDemo() {
-            document.getElementById('demoStart').style.display = 'none';
-            document.getElementById('demoActive').style.display = 'block';
-            demoState.active = true;
-            demoState.sessionStart = Date.now();
-            
-            // Scroll to demo
-            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
-            
-            // Start live updates
-            startLiveMetrics();
-        }
-
-        // Close Demo
-        function closeClaraDemo() {
-            document.getElementById('demoActive').style.display = 'none';
-            document.getElementById('demoStart').style.display = 'block';
-            demoState.active = false;
-        }
-
-        // Live Metrics Updates
-        function startLiveMetrics() {
-            setInterval(() => {
-                // Update response time
-                const responseTime = 100 + Math.floor(Math.random() * 50);
-                document.getElementById('live-response-time').textContent = responseTime + 'ms';
-                
-                // Update queries
-                const currentQueries = parseInt(document.getElementById('live-queries').textContent.replace(',', ''));
-                document.getElementById('live-queries').textContent = (currentQueries + Math.floor(Math.random() * 5)).toLocaleString();
-                
-                // Update time saved
-                const currentTime = parseInt(document.getElementById('live-time-saved').textContent.replace('hrs', ''));
-                document.getElementById('live-time-saved').textContent = (currentTime + Math.floor(Math.random() * 2)) + 'hrs';
-            }, 3000);
-        }
-
         // ROI Calculator
         function calculateROI() {
             const hcps = parseInt(document.getElementById('hcpCount').value) || 100;
@@ -869,70 +656,21 @@
             document.getElementById('costSavings').textContent = '$' + Math.round(costSaved).toLocaleString();
             document.getElementById('roiPercent').textContent = Math.round(roi) + '%';
         }
-
-        // Demo capability shortcuts
-        function demoCapability(capability) {
-            startClaraDemo();
-            
-            setTimeout(() => {
-                const queries = {
-                    'drug': 'Check all interactions between Biktarvy, rifampin, and atorvastatin',
-                    'pa': 'Generate PA for Descovy with UnitedHealthcare and predict success rate',
-                    'assistance': 'Find all patient assistance programs for uninsured HIV patient with $35k income'
-                };
+        
+        // Live Metrics Updates
+        function startLiveMetrics() {
+            setInterval(() => {
+                const responseTime = 100 + Math.floor(Math.random() * 50);
+                document.getElementById('live-response-time').textContent = responseTime + 'ms';
                 
-                if (queries[capability]) {
-                    sendQuery(queries[capability]);
-                }
-            }, 500);
-        }
-
-        // Start demo scenario
-        function startDemoScenario(scenario) {
-            startClaraDemo();
-            
-            setTimeout(() => {
-                const scenarios = {
-                    'drug-interaction': 'What are all drug interactions for a patient on Biktarvy, rifampin, atorvastatin, and metformin?',
-                    'pa-automation': 'Generate prior authorization for Descovy with Aetna, predict success, and prepare appeal strategy',
-                    'patient-assist': 'Find and optimize all patient assistance programs for uninsured patient, income $35,000, Texas resident'
-                };
+                const currentQueries = parseInt(document.getElementById('live-queries').textContent.replace(',', ''));
+                document.getElementById('live-queries').textContent = (currentQueries + Math.floor(Math.random() * 5)).toLocaleString();
                 
-                if (scenarios[scenario]) {
-                    sendQuery(scenarios[scenario]);
-                }
-            }, 500);
+                const currentTime = parseInt(document.getElementById('live-time-saved').textContent.replace('hrs', ''));
+                document.getElementById('live-time-saved').textContent = (currentTime + Math.floor(Math.random() * 2)) + 'hrs';
+            }, 3000);
         }
-
-        // Utility functions
-        function scrollToDemo() {
-            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function scrollToCapabilities() {
-            document.getElementById('capabilities').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function openInvestorPortal() {
-            alert('Investor portal coming soon. Contact: investors@advocaremed.com');
-        }
-
-        function openContactModal() {
-            window.location.href = 'clean.html';
-        }
-
-        function toggleVoiceInput() {
-            alert('Voice input coming soon - hands-free queries during procedures');
-        }
-
-        function attachFile() {
-            alert('File attachment for batch processing coming soon');
-        }
-
-        function showQueryHistory() {
-            alert('Query history and saved responses coming soon');
-        }
-
+        
         // Initialize on page load
         window.addEventListener('DOMContentLoaded', function() {
             calculateROI();
